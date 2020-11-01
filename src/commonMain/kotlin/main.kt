@@ -1,6 +1,7 @@
 import soccer.*
 import com.soywiz.korge.*
 import com.soywiz.korge.tween.tween
+import com.soywiz.korge.view.position
 import com.soywiz.korim.color.*
 import com.soywiz.korma.geom.*
 import soccer.fuzzyLogic.space2d.getAngle
@@ -26,15 +27,13 @@ suspend fun main() = Korge(width = WIDTH, height = HEIGHT, bgcolor = Colors["#00
 	println(getAngle(playerPosition, playerAngle, ballPosition))
 	println(goalPosition distanceTo ballPosition)
 
-	//var count = playerAngle
+	var count = playerAngle
 	while (true) {
-
 		ball.tween()
 		player.tween()
 		goal.tween()
-		//count += 10
-		//println(count)
-		//player.tween(player::rotation[(count % 360).degrees], time = 1.nanoseconds)
-		//player.position(playerPosition.first + 100, playerPosition.second)
+		count += 10
+		println(count)
+		player.position(playerPosition.x + 100, playerPosition.y)
 	}
 }
