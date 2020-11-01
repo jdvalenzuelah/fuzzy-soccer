@@ -1,13 +1,10 @@
-# Korge Hello World and Template
+# Korge Fuzzy Soccer AI.
 
-This is a Hello World and Template for the KorGe game engine. Using gradle with kotlin-dsl.
-You can open this project in IntelliJ IDEA by opening the folder or the build.gradle.kts file.
-
-You can find this template at GitHub: <https://github.com/korlibs/korge-hello-world>
+AI using fuzzy logic to play soccer using Korge
 
 For Windows, change all the `./gradlew` for `gradlew.bat`.
 
-You should use Gradle 5.5 or greater and Java 8 or greater.
+**You should use Gradle 5.5 or greater and Java 8 or greater.**
 
 ## Compiling for the JVM (Desktop)
 
@@ -86,70 +83,3 @@ Since linux doesn't provide standard multimedia libraries out of the box,
 you will need to have installed the following packages: `freeglut3-dev` and `libopenal-dev`.
 
 In ubuntu you can use `apt-get`: `sudo apt-get -y install freeglut3-dev libopenal-dev`.
-
-## Compiling for Android
-
-You will need to have installed the Android SDK in the default path for your operating system
-or to provide the `ANDROID_SDK` environment variable. The easiest way is to install Android Studio.
-
-Using gradle tasks on the terminal:
-
-### Native Android (JVM)
-
-```bash
-./gradlew installAndroidDebug             # Installs an APK in all the connected devices
-./gradlew runAndroidEmulatorDebug         # Runs the application in an emulator
-```
-
-Triggering these tasks, it generates a separate android project into `build/platforms/android`.
-You can open it in `Android Studio` for debugging and additional tasks. The KorGE plugin just
-delegates gradle tasks to that gradle project.
-
-### Apache Cordova (JS)
-
-```bash
-./gradlew compileCordovaAndroid           # Just compiles cordova from Android
-./gradlew runCordovaAndroid               # Runs the application (dce'd, minimized and webpacked) in an Android device
-./gradlew runCordovaAndroidNoMinimized    # Runs the application in Android without minimizing (so you can use `chrome://inspect` to debug the application easier)
-```
-
-
-
-## Compiling for iOS
-
-You will need XCode and to download the iOS SDKs using Xcode.
-
-Using gradle tasks on the terminal:
-
-### Native iOS (Kotlin/Native) + Objective-C
-
-Note that the necessary bridges are built using Objective-C instead of Swift, so the application
-won't include Swift's runtime.
-
-```bash
-./gradlew iosBuildSimulatorDebug          # Creates an APP file
-./gradlew iosInstallSimulatorDebug        # Installs an APP file in the simulator
-./gradlew iosRunSimulatorDebug            # Runs the APP in the simulator
-
-```
-
-These tasks generate a xcode project in `build/platforms/ios`, so you can also open the project
-with XCode and do additional tasks there.
-
-It uses [XCodeGen](https://github.com/yonaskolb/XcodeGen) for the project generation
-and [ios-deploy](https://github.com/ios-control/ios-deploy) for deploying to real devices.
-
-### Apache Cordova (JS)
-
-```bash
-./gradlew compileCordovaIos               # Just compiles cordova from iOS
-./gradlew runCordovaIos                   # Runs the application (dce'd, minimized and webpacked) in an iOS device
-./gradlew runCordovaIosNoMinimized        # Runs the application in iOS without minimizing (so you can use Safari on macOS to debug the application easier)
-```
-
-## JS-game deployment to GitHub Pages
- - Go to [settings page](../../settings) and enable GitHub Pages
- - Choose branch `github-pages` and select folder `/ (root)`      
- - After that you can use link:  
-[link to JS-game](../../deployments/activity_log?environment=github-pages), click "View Deployment"  
- - When you push to main or master branch, - deployment process will start again with GitHub Actions.  
